@@ -102,17 +102,48 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
 
+1.Create a project with required entities.
+
+2.Create a module along with respective file name.
+
+3.Run the respective programs for the given boolean equations.
+
+4.Run the module and get the respective RTL outputs.
+
+5.Create university program(VWF) for getting timing diagram.
+
+6.Give the respective inputs for timing diagram and obtain the results.
 
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+```
+module flipflop(s,r,Q,Qbar,clk);
+input s,r,clk;
+output reg Q,Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=s|(Q&(~r));
+Qbar=r|(Qbar&(~s));
+end
+endmodule
 
+JK FLIPFLOPS CODE:
+module flipflops(J,K,clk,Q,Qbar);
+input J,K,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(J&(~Q))|((~K)&Q);
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+end
+endmodule
+```
 
 
 
@@ -120,21 +151,27 @@ RegisterNumber:
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
+## SR FLIPFLOP
+![270084044-d0587ec7-a319-46bb-81a3-e235def0f585](https://github.com/kamalesh2509/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120444689/e70d4f01-eb56-4444-9ee5-61015d019621)
 
+## JK FLIPFLOP
 
-
-
+![270083688-d195139f-d633-4e00-8a77-400d6a9c566f](https://github.com/kamalesh2509/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120444689/00772139-84d4-4dad-9ed3-9f2a33192183)
 
 
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+## SR FLIPFLOP
+
+![270084178-5d928a52-5e03-4f86-89c4-a5e2ea096d07](https://github.com/kamalesh2509/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120444689/79482318-b743-4679-af82-a8a37af7c722)
+
+## JK FLIPFLOP
 
 
-
-
-
+![270084191-1c5899d4-cfd4-4829-8adb-1a55079d9272](https://github.com/kamalesh2509/Experiment--05-Implementation-of-flipflops-using-verilog/assets/120444689/740a9d17-8d43-4c4a-8f99-98c94b645a0e)
 
 
 
 ### RESULTS 
+All the flipflops are implemented using verilog and their functionality has been validated using their functional tables.
